@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuis & Simulasi - AnakAman</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <a href="index.html" class="logo">
+            <span class="logo-icon">A</span>
+            AnakAman
+        </a>
+
+        <nav>
+            <a href="index.html">Beranda</a>
+            <a href="materi.html">Materi</a>
+            <a href="checklist.html">Checklist</a>
+            <a href="kuis.html" class="active">Kuis</a>
+        </nav>
+
+        <a href="dashboard.html" class="nav-button">Dashboard</a>
+    </header>
+
+    <main>
+
+        <!-- Hero -->
+        <section class="kuis-hero">
+            <span class="tag">Uji Pemahaman Anda</span>
+            <h1>Seberapa Paham Anda tentang <span>Keamanan Digital?</span></h1>
+            <p>
+                Jawab pertanyaan dan hadapi simulasi kasus untuk
+                mengetahui seberapa baik pemahaman Anda dalam
+                melindungi anak di dunia digital.
+            </p>
+        </section>
+
+        <!-- Kuis Container -->
+        <section class="kuis-container">
+
+            <!-- Intro -->
+            <div class="kuis-intro" id="kuisIntro">
+                <div class="kuis-icon">📝</div>
+                <h2>Siap Menguji Pengetahuan Anda?</h2>
+                <p>
+                    Terdapat 10 pertanyaan seputar keamanan digital anak.
+                    Pilih jawaban yang menurut Anda paling tepat.
+                </p>
+
+                <div class="kuis-info">
+                    <div>
+                        <strong>10</strong>
+                        <span>Pertanyaan</span>
+                    </div>
+                    <div>
+                        <strong>5-10</strong>
+                        <span>Menit</span>
+                    </div>
+                    <div>
+                        <strong>100</strong>
+                        <span>Skor Maksimal</span>
+                    </div>
+                </div>
+
+                <button class="btn-primary" onclick="mulaiKuis()">
+                    Mulai Kuis →
+                </button>
+            </div>
+
+            <!-- Quiz -->
+            <div class="quiz-box" id="quizBox" style="display:none;">
+
+                <div class="quiz-top">
+                    <span id="questionNumber">Pertanyaan 1 dari 10</span>
+                    <span id="questionCategory">Keamanan Digital</span>
+                </div>
+
+                <div class="quiz-progress">
+                    <div id="quizProgressFill"></div>
+                </div>
+
+                <div class="question-content">
+                    <h2 id="questionText"></h2>
+                    <div id="answerOptions" class="answer-options"></div>
+                </div>
+
+                <div class="quiz-feedback" id="quizFeedback"></div>
+
+                <div class="quiz-navigation">
+                    <button class="btn-secondary" onclick="kembaliIntro()">
+                        Keluar
+                    </button>
+                    <button class="btn-primary" id="nextButton" onclick="lanjutPertanyaan()" disabled>
+                        Jawaban Selanjutnya →
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- Result -->
+            <div class="quiz-result" id="quizResult" style="display:none;">
+                <div class="result-icon">🏆</div>
+                <span class="tag">Hasil Kuis AnakAman</span>
+                <h2>Kuis Selesai!</h2>
+                <div class="result-score" id="resultScore">0</div>
+                <p id="resultMessage"></p>
+
+                <div class="result-summary">
+                    <div>
+                        <strong id="correctCount">0</strong>
+                        <span>Jawaban Benar</span>
+                    </div>
+                    <div>
+                        <strong id="wrongCount">0</strong>
+                        <span>Jawaban Salah</span>
+                    </div>
+                    <div>
+                        <strong>10</strong>
+                        <span>Total Soal</span>
+                    </div>
+                </div>
+
+                <div class="result-recommendation">
+                    <h3>Rekomendasi untuk Anda</h3>
+                    <p id="recommendationText"></p>
+                </div>
+
+                <div class="result-buttons">
+                    <button class="btn-primary" onclick="ulangiKuis()">
+                        Ulangi Kuis
+                    </button>
+                    <a href="dashboard.html" class="btn-secondary">
+                        Lihat Dashboard
+                    </a>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Simulasi -->
+        <section class="simulation-section">
+            <div class="section-heading">
+                <span class="tag">Belajar dari Situasi Nyata</span>
+                <h2>Simulasi Kasus Digital</h2>
+                <p>Menurut Anda, apa yang sebaiknya dilakukan orang tua?</p>
+            </div>
+
+            <div class="simulation-card">
+                <div class="simulation-label">Studi Kasus 01</div>
+                <div class="simulation-icon">🎮</div>
+
+                <h3>Anak Mendapat Tawaran Top-Up Gratis dari Orang Asing</h3>
+
+                <p>
+                    Anak Anda sedang bermain game online. Tiba-tiba,
+                    seseorang yang tidak dikenal menawarkan item game
+                    gratis dengan syarat anak harus memberikan kode OTP
+                    akun miliknya.
+                </p>
+
+                <strong class="simulation-question">
+                    Apa tindakan yang paling tepat?
+                </strong>
+
+                <div class="simulation-options">
+                    <button onclick="jawabSimulasi(this, false)">
+                        A. Membiarkan anak mengikuti tawaran tersebut.
+                    </button>
+
+                    <button onclick="jawabSimulasi(this, true)">
+                        B. Menolak tawaran, menjaga kode OTP, dan memblokir akun tersebut.
+                    </button>
+
+                    <button onclick="jawabSimulasi(this, false)">
+                        C. Meminta anak memberikan kode OTP kepada orang tersebut.
+                    </button>
+
+                    <button onclick="jawabSimulasi(this, false)">
+                        D. Meminta anak mencoba terlebih dahulu.
+                    </button>
+                </div>
+
+                <div class="simulation-feedback" id="simulationFeedback"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <a href="index.html" class="logo">
+            <span class="logo-icon">A</span>
+            AnakAman
+        </a>
+        <p>Platform edukasi keamanan digital anak untuk orang tua.</p>
+        <span>© 2026 AnakAman. All rights reserved.</span>
+    </footer>
+
+    <script src="js/kuis.js"></script>
+</body>
+</html>

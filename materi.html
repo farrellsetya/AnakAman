@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materi Edukasi - AnakAman</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <a href="index.html" class="logo">
+            <span class="logo-icon">A</span>
+            AnakAman
+        </a>
+
+        <nav>
+            <a href="index.html">Beranda</a>
+            <a href="materi.html" class="active">Materi</a>
+            <a href="checklist.html">Checklist</a>
+            <a href="kuis.html">Kuis</a>
+        </nav>
+
+        <a href="dashboard.html" class="nav-button">Dashboard</a>
+    </header>
+
+    <main>
+
+        <!-- Header Materi -->
+        <section class="materi-hero">
+            <span class="tag">Pusat Edukasi AnakAman</span>
+            <h1>Kenali Risiko, <span>Lindungi Anak.</span></h1>
+            <p>
+                Pelajari berbagai risiko di dunia digital dan temukan
+                cara sederhana untuk melindungi anak saat menggunakan internet.
+            </p>
+        </section>
+
+        <!-- Daftar Materi -->
+        <section class="materi-section">
+
+            <div class="materi-heading">
+                <div>
+                    <h2>Materi Pembelajaran</h2>
+                    <p>Pilih topik yang ingin kamu pelajari.</p>
+                </div>
+                <span class="materi-count">6 Materi</span>
+            </div>
+
+            <div class="materi-grid">
+
+                <article class="materi-card">
+                    <div class="materi-image image-game">
+                        <span>🎮</span>
+                    </div>
+                    <div class="materi-content">
+                        <span class="materi-category">Game Online</span>
+                        <h3>Bahaya Interaksi dengan Orang Asing dalam Game</h3>
+                        <p>
+                            Kenali risiko komunikasi dengan pemain tidak dikenal
+                            dan cara mengajarkan anak menjaga diri.
+                        </p>
+                        <button onclick="bukaMateri(1)">Pelajari Materi →</button>
+                    </div>
+                </article>
+
+                <article class="materi-card">
+                    <div class="materi-image image-youtube">
+                        <span>▶️</span>
+                    </div>
+                    <div class="materi-content">
+                        <span class="materi-category">YouTube</span>
+                        <h3>Konten Tidak Pantas untuk Anak</h3>
+                        <p>
+                            Memahami risiko konten yang tidak sesuai usia
+                            dan cara membatasi tontonan anak.
+                        </p>
+                        <button onclick="bukaMateri(2)">Pelajari Materi →</button>
+                    </div>
+                </article>
+
+                <article class="materi-card">
+                    <div class="materi-image image-privacy">
+                        <span>🔐</span>
+                    </div>
+                    <div class="materi-content">
+                        <span class="materi-category">Privasi Digital</span>
+                        <h3>Melindungi Data Pribadi Anak di Internet</h3>
+                        <p>
+                            Ajarkan anak untuk tidak membagikan alamat,
+                            nomor telepon, dan informasi pribadi.
+                        </p>
+                        <button onclick="bukaMateri(3)">Pelajari Materi →</button>
+                    </div>
+                </article>
+
+                <article class="materi-card">
+                    <div class="materi-image image-bullying">
+                        <span>💬</span>
+                    </div>
+                    <div class="materi-content">
+                        <span class="materi-category">Cyberbullying</span>
+                        <h3>Mengenali Tanda Anak Mengalami Perundungan Online</h3>
+                        <p>
+                            Kenali perubahan perilaku anak dan cara
+                            memberikan pendampingan yang tepat.
+                        </p>
+                        <button onclick="bukaMateri(4)">Pelajari Materi →</button>
+                    </div>
+                </article>
+
+                <article class="materi-card">
+                    <div class="materi-image image-scam">
+                        <span>💳</span>
+                    </div>
+                    <div class="materi-content">
+                        <span class="materi-category">Penipuan Digital</span>
+                        <h3>Waspada Penipuan Top-Up dan Hadiah Game</h3>
+                        <p>
+                            Kenali modus penipuan yang memanfaatkan
+                            hadiah virtual dan transaksi game.
+                        </p>
+                        <button onclick="bukaMateri(5)">Pelajari Materi →</button>
+                    </div>
+                </article>
+
+                <article class="materi-card">
+                    <div class="materi-image image-social">
+                        <span>📱</span>
+                    </div>
+                    <div class="materi-content">
+                        <span class="materi-category">Media Sosial</span>
+                        <h3>Menggunakan Media Sosial dengan Aman</h3>
+                        <p>
+                            Pelajari pengaturan privasi akun dan
+                            batasan penggunaan media sosial.
+                        </p>
+                        <button onclick="bukaMateri(6)">Pelajari Materi →</button>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Tips -->
+        <section class="materi-tips">
+            <div class="tips-icon">💡</div>
+            <div>
+                <h3>Ingat, Pendampingan Orang Tua Itu Penting!</h3>
+                <p>
+                    Jangan hanya membatasi penggunaan perangkat.
+                    Ajak anak berdiskusi agar mereka memahami cara
+                    menjaga diri saat berada di dunia digital.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modal Detail Materi -->
+    <div class="modal-overlay" id="materiModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="tutupMateri()">×</button>
+            <span class="tag" id="detailKategori">Materi Edukasi</span>
+            <h2 id="detailJudul"></h2>
+            <div id="detailIsi"></div>
+            <button class="btn-primary modal-done" onclick="tutupMateri()">
+                Selesai Membaca
+            </button>
+        </div>
+    </div>
+
+    <footer>
+        <a href="index.html" class="logo">
+            <span class="logo-icon">A</span>
+            AnakAman
+        </a>
+        <p>Platform edukasi keamanan digital anak untuk orang tua.</p>
+        <span>© 2026 AnakAman. All rights reserved.</span>
+    </footer>
+
+    <script src="js/materi.js"></script>
+</body>
+</html>
